@@ -50,11 +50,11 @@ namespace Nothing.Web
             {
                 //endpoints.MapControllerRoute(
                 //    name: "MyArea",
-                //    pattern: "{area:Admin}/{controller=Home}/{action=Index}/{id?}");
+                //    pattern: "{area:exists}/{controller=Language}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=TestTheme}/{action=Index}/{id?}");
+                    pattern: "{controller=Language}/{action=Index}/{id?}");
             });
         }
     }

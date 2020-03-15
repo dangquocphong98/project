@@ -5,13 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Area\Admin\Model\" />
-    <Folder Include="Area\Admin\Controller\" />
-    <Folder Include="Area\Admin\View\" />
+    <Folder Include="wwwroot\myCss\" />
     <Folder Include="wwwroot\Theme\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AngularJS.Core" Version="1.7.9" />
+    <PackageReference Include="AngularJS.Route" Version="1.7.9" />
+    <PackageReference Include="bootstrap" Version="4.4.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
