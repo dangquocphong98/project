@@ -48,6 +48,10 @@ namespace Nothing.Web
 
             app.UseEndpoints(endpoints =>
             {
+                //endpoints.MapControllerRoute(
+                //    name: "MyArea",
+                //    pattern: "{area:Admin}/{controller=Home}/{action=Index}/{id?}");
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=TestTheme}/{action=Index}/{id?}");

@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Area\Admin\Model\" />
+    <Folder Include="Area\Admin\Controller\" />
+    <Folder Include="Area\Admin\View\" />
     <Folder Include="wwwroot\Theme\" />
   </ItemGroup>
 
