@@ -3,21 +3,46 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+    <div ng-app="LanguageApp" ng-controller="LanguageCtr">
+        <div class="row" ng-show="IsShow3">
+            <div class="col-md-4" style="width:150px;">
+                <button ng-click="showPopupAdd()" type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-plus" style="color:#ffffff"></span>Thêm</button>
+            </div>
+            <div class="col-md-8">
+                <div class="input-group form-search">
+                    <input type="text" class="form-control search-query">
+                    <span class="input-group-btn">
+                        <button data-type="last" class="btn btn-primary" type="submit">Search</button>
+                    </span>
+                </div>
+            </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <button type="button" class="btn btn-primary btn-block">Primary</button>
-    </div>
-    <div class="col-md-8">
-        <div class="input-group form-search">
-            <input type="text" class="form-control search-query">
-            <span class="input-group-btn">
-                <button data-type="last" class="btn btn-primary" type="submit">Search</button>
-            </span>
+        </div>
+        <div ng-show="IsShow1">
+            <partial name="_LanguageTable" />
+        </div>
+        <div ng-show="IsShow2">
+            <partial name="_LanguageAdd" />
         </div>
     </div>
-   
-</div>
-<div>
-    <partial name="_LanguageTable" />
-</div>
+
+<script>
+    var app = angular.module("LanguageApp", []);
+    app.controller('LanguageCtr', function ($scope) {
+        $scope.IsShow1 = true;
+         $scope.IsShow3 = true;
+        $scope.IsShow2 = false;
+
+        $scope.showPopupAdd = function () {
+            $scope.IsShow1 = false;
+            $scope.IsShow2 = true;
+            $scope.IsShow3 = false;
+        }
+
+        $scope.showPopupTable = function () {
+            $scope.IsShow1 = true;
+            $scope.IsShow2 = false;
+            $scope.IsShow3 = true;
+        }
+});
+</script>

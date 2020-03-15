@@ -1,48 +1,43 @@
 ﻿@model Nothing.Web.Common.ResultModel<Language>
 @using Nothing.Model.Entity
-@*
-   
-*@
-<table id="tableLanguage">
+@{ 
+    var lstLanguage = Model.listModel;
+}
+<table id="tableLanguage" class="table table-bordered">
     <thead>
         <tr>
             <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>Key</th>
+            <th>Việt Nam</th>
+            <th>English</th>
+            <th>Tùy chọn</th>
         </tr>
     </thead>
     <tbody>
+        @foreach (var item in lstLanguage)
+        {
         <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>gdfg</td>
+            <td>@item.ID_Language</td>
+            <td>@item.Key_Language</td>
+            <td>@item.Language_VN</td>
+            <td>@item.Language_EN</td>
+            <td><span style="cursor:pointer;" class="glyphicon glyphicon-edit" ng-click="Edit(@item.ID_Language)"></span></td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>dfgd</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>ewr</td>
-        </tr>
+        }
     </tbody>
 </table>
 
 <script>
+    var lstLanguage = [];
     $(document).ready(function () {
+
         $.extend($.fn.dataTable.defaults, {
             searching: false,
             ordering: false
         });
 
         $('#tableLanguage').DataTable({
-            
+          
         });
     });
 </script>
