@@ -19,7 +19,7 @@ namespace Nothing.Model.Data
             //modelBuilder.Seed();
         }
 
-        public DbSet<Language> categories { get; set; }
+        public DbSet<Language> languages { get; set; }
        
     }
 }

@@ -5,9 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Nothing.Application.Repository;
+using Nothing.Application.Repository.GenericRepository;
+using Nothing.Application.Repository.LanguageRepository;
+using Nothing.Model.Data;
 
 namespace Nothing.Web
 {
@@ -23,7 +28,17 @@ namespace Nothing.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<NothingDBContext>(options =>
+             options.UseSqlServer(Configuration.GetConnectionString("BookTicketDB")));
+
+            services.AddScoped<ILanguageRepository, LanguageRepository>();
+          
             services.AddControllersWithViews();
+            //Repository
+           
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
