@@ -3,31 +3,44 @@
 @{ 
     var lstLanguage = Model.listModel;
 }
-<table id="tableLanguage" class="table table-bordered">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Key</th>
-            <th>Việt Nam</th>
-            <th>English</th>
-            <th>Tùy chọn</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in lstLanguage)
-        {
-        <tr>
-            <td>@item.ID_Language</td>
-            <td>@item.Key_Language</td>
-            <td>@item.Language_VN</td>
-            <td>@item.Language_EN</td>
-            <td><span style="cursor:pointer;" class="glyphicon glyphicon-edit" ng-click="Edit(@item.ID_Language)"></span></td>
-        </tr>
-        }
-    </tbody>
-</table>
+
+
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped verticle-middle" id="tableLanguage">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Từ khóa</th>
+                <th scope="col">Tiếng Việt</th>
+                <th scope="col">Tiếng Anh</th>
+                <th scope="col">Tùy chọn</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in lstLanguage)
+            {
+                <tr>
+                    <td>@item.ID_Language</td>
+                    <td>@item.Key_Language</td>
+                    <td>@item.Language_VN</td>
+                    <td>@item.Language_EN</td>
+                    <td>
+                        <span>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                            <i class="fa fa-pencil color-muted m-r-5"></i> </a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close">
+                            <i class="fa fa-close color-danger"></i></a>
+                        </span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 <script>
+
     var lstLanguage = [];
     $(document).ready(function () {
 

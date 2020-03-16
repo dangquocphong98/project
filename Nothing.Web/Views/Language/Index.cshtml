@@ -6,8 +6,11 @@
     <div ng-app="LanguageApp" ng-controller="LanguageCtr">
         <div class="row" ng-show="IsShow3">
             <div class="col-md-4" style="width:150px;">
-                <button ng-click="showPopupAdd()" type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-plus" style="color:#ffffff"></span>Thêm</button>
+                <button type="button" class="btn mb-1 btn-primary" ng-click="showPopupAdd()">
+                    Thêm <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
+                </button>
             </div>
+
             <div class="col-md-8">
                 <div class="input-group form-search">
                     <input type="text" class="form-control search-query">
@@ -37,6 +40,8 @@
             $scope.IsShow1 = false;
             $scope.IsShow2 = true;
             $scope.IsShow3 = false;
+            toastr.options.closeButton = true;
+            toastr.success('Thêm', 'Thông báo');
         }
 
         $scope.showPopupTable = function () {
