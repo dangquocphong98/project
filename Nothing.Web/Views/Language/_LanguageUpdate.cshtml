@@ -1,0 +1,29 @@
+﻿@model Nothing.Model.Entity.Language
+<div class="panel-body">
+    <form id="form-add">
+        <div class="form-group">
+            <label>Từ khóa</label>
+            <input autocomplete="on" type="text" value="@Model.Key_Language" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Tiếng Việt</label>
+            <input autocomplete="on" type="text" value="@Model.Language_VN" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Tiếng Anh</label>
+           <input autocomplete="on" type="text" value="@Model.Language_EN" class="form-control">
+        </div>
+        <div class="d-flex justify-content-lg-start">
+            <button on-click="SubmitUpdate()" type="button" class="btn mb-1 btn-success">
+                    Sửa<span class="btn-icon-right"><i class="fa fa-check"></i></span>
+            </button>
+            <button type="button" style="margin-left:10px;" class="btn mb-1 btn-info" ng-click="showPopupTable()">
+                 Trở về<span class="btn-icon-right"><i class="fa fa-arrow-left"></i></span>
+            </button>
+         </div>
+    </form>
+</div>
+
+<script>
+
+</script>

@@ -18,7 +18,7 @@ namespace Nothing.Application.Repository
 
         int Count();
 
-       
+        int Save();
         TEntity GetSingleOrDefault(Expression<Func<TEntity, bool>> predicate);
         TEntity Get(int id);
         List<TEntity> GetAll();

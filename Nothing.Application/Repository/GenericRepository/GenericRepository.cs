@@ -71,5 +71,10 @@ namespace Nothing.Application.Repository.GenericRepository
         {
             return _entities.ToList();
         }
+
+        public int Save()
+        {
+            return _context.SaveChanges();
+        }
     }
 }
