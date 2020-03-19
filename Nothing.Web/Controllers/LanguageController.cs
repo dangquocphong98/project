@@ -27,9 +27,16 @@ namespace Nothing.Web.Controllers
             return PartialView(result);
         }
 
+
+
         public List<Language> loadData()
         {
             return _ILanguage.GetAll();
+        }
+        
+        public IActionResult ShowPageAdd()
+        {
+            return PartialView("_LanguageAdd");
         }
 
         [HttpPost]
@@ -59,6 +66,51 @@ namespace Nothing.Web.Controllers
                 result.mess = ex.ToString();
                 return Json(result);
             }
+        }
+
+        public IActionResult Update(int id)
+        {
+            var result = new ResultModel<Language>();
+            try
+            {
+                var model = _ILanguage.Get(id);
+                if (model == null)
+                {
+                    result.status = false;
+                    result.mess = "Không tìm thấy đối tượng";
+                    return Json(result);
+                }
+                else
+                    return PartialView("_LanguageUpdate",model);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        [HttpPost]
+        public IActionResult SubmitUpdate(Language data)
+        {
+            var result = new ResultModel<Language>();
+            var modelDB = _ILanguage.Get(data.ID_Language);
+            if (modelDB == null)
+            {
+                return Json(new ResultModel<Language>() { status = false, mess = "That bai" }) ;
+            }
+            modelDB.Key_Language = data.Key_Language;
+            modelDB.Language_EN = data.Language_EN;
+            modelDB.Language_VN = data.Language_VN;
+
+            if (_ILanguage.Save() > 0)
+            {
+                result.listModel = loadData();
+                result.status = true;
+                result.mess = "Thành công";
+                return PartialView("_LanguageTable", result);
+            }
+
+            return Json(new ResultModel<Language>() { status = false, mess = "That bai" });
+
         }
     }
 }

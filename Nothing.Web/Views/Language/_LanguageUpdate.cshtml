@@ -1,20 +1,21 @@
 ﻿@model Nothing.Model.Entity.Language
 <div class="panel-body">
-    <form id="form-add">
+    <form id="form-update">
+        <input hidden value="@Model.ID_Language" name="ID_Language"/>
         <div class="form-group">
             <label>Từ khóa</label>
-            <input autocomplete="on" type="text" value="@Model.Key_Language" class="form-control">
+            <input autocomplete="on" type="text" name="Key_Language" value="@Model.Key_Language" class="form-control">
         </div>
         <div class="form-group">
             <label>Tiếng Việt</label>
-            <input autocomplete="on" type="text" value="@Model.Language_VN" class="form-control">
+            <input autocomplete="on" type="text" name="Language_VN" value="@Model.Language_VN" class="form-control">
         </div>
         <div class="form-group">
             <label>Tiếng Anh</label>
-           <input autocomplete="on" type="text" value="@Model.Language_EN" class="form-control">
+           <input autocomplete="on" type="text" name="Language_EN" value="@Model.Language_EN" class="form-control">
         </div>
         <div class="d-flex justify-content-lg-start">
-            <button on-click="SubmitUpdate()" type="button" class="btn mb-1 btn-success">
+            <button id="btSbUpdate" type="button" class="btn mb-1 btn-success">
                     Sửa<span class="btn-icon-right"><i class="fa fa-check"></i></span>
             </button>
             <button type="button" style="margin-left:10px;" class="btn mb-1 btn-info" ng-click="showPopupTable()">
@@ -25,5 +26,11 @@
 </div>
 
 <script>
-
+    $('#btSbUpdate').click(function(){
+        var data = $('#form-update').serialize();
+        $.post('Language/SubmitUpdate', data, function (data) {
+            $('#table-Language').html(data);
+        })
+    
+    }) 
 </script>

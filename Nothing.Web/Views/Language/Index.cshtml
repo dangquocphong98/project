@@ -3,72 +3,9 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <div ng-app="LanguageApp" ng-controller="LanguageCtr">
-        <div ng-show="IsShow1" id="table-Language">
-            <partial name="_LanguageTable" />
-        </div>
-        <div ng-show="IsShow2">
-            <partial name="_LanguageAdd" />
-        </div>
+<div>
+    <div id="table-Language">
+        <partial name="_LanguageTable" />
     </div>
+</div>
 
-<script>
-    var app = angular.module("LanguageApp", []);
-    app.controller('LanguageCtr', function ($scope,$http) {
-        $scope.IsShow1 = true;
-        $scope.IsShow2 = false;
-
-        $scope.LanguageModel = {
-            Key_Language: '',
-            Language_VN: '',
-            Language_EN:''
-        }
-
-        $scope.showPopupAdd = function () {
-
-            $scope.LanguageModel = {
-                Key_Language: '',
-                Language_VN: '',
-                Language_EN:''
-            }
-            $scope.IsShow1 = false;
-            $scope.IsShow2 = true;
-            
-        }
-
-        $scope.showPopupTable = function () {
-            $scope.IsShow1 = true;
-            $scope.IsShow2 = false;
-          
-        }
-
-        $scope.SubmitAdd = function () {
-            var data = angular.copy($scope.LanguageModel);
-            //var url = 'Language/Add';
-            //$http.post(url, data).then(function (data) {
-            //    toastr.success('Thanh cong');
-            //    },
-            //   function(data) {
-            //        toastr.success('That bai');
-            //    });
-            
-            $.ajax({
-                type: 'post',
-                url: 'Language/Add',
-                data: data
-            }).done(function (data) {
-                //debugger
-                //console.log($scope.IsShow1);
-                //console.log($scope.IsShow2);
-                $('#table-Language').html(data);
-               
-                toastr.success("Thêm thành công");
-            }).fail(function (data) {
-                toastr.success(data.mess);
-            });
-            $scope.IsShow1 = true;
-            $scope.IsShow2 = false;
-            //console.log(data);
-        }
-});
-</script>

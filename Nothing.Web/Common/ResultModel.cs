@@ -10,5 +10,7 @@ namespace Nothing.Web.Common
         public List<T> listModel { get; set; }
         public string mess { get; set; }
         public bool status { get; set; }
+
+        
     }
 }

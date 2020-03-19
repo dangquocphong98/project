@@ -22,7 +22,7 @@
 </style>
 <div class="row">
     <div class="col-md-4" style="width:150px;">
-        <button type="button" class="btn mb-1 btn-primary" ng-click="showPopupAdd()">
+        <button type="button" class="btn mb-1 btn-primary" id="bt-Add">
             Thêm <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
         </button>
     </div>
@@ -48,7 +48,7 @@
                     <td>@item.Language_EN</td>
                     <td>
                         <span>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                            <a class="icon-Update" data-id="@item.ID_Language" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
                             <i class="fa fa-pencil color-muted m-r-5"></i> </a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close">
                             <i class="fa fa-close color-danger"></i></a>
@@ -59,25 +59,44 @@
         </tbody>
     </table>
 </div>
-
 <script>
-
-    var lstLanguage = [];
     $(document).ready(function () {
-
         $.extend($.fn.dataTable.defaults, {
-           
+
         });
 
         $('#tableLanguage').DataTable({
-          
+
         });
 
         $('#tableLanguage_length select').select2({
-             minimumResultsForSearch: Infinity
+            minimumResultsForSearch: Infinity
         });
+
         $('#tableLanguage_filter input').addClass('input-search');
-       
+
+        $('#bt-Add').click(function () {
+
+            $.get('Language/ShowPageAdd', function (data) {
+                $('#table-Language').html(data);
+            });
+        });
+
+        $('.icon-Update').click(function () {
+            var ID = $(this).attr('data-id');
+            var id = parseInt(ID);
+            //$.get('Language/Update',id, function (data) {
+            //    $('#table-Language').html(data);
+            //});
+            $.ajax({
+                type: 'get',
+                data: { id: id },
+                url: 'Language/Update'
+            }).done(function (data) {
+                $('#table-Language').html(data);
+            });
+        })
     });
+
 </script>
 
