@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Nothing.Application.Repository;
 using Nothing.Application.Repository.GenericRepository;
 using Nothing.Application.Repository.LanguageRepository;
+using Nothing.Application.Repository.Menu;
 using Nothing.Model.Data;
 
 namespace Nothing.Web
@@ -33,7 +34,8 @@ namespace Nothing.Web
              options.UseSqlServer(Configuration.GetConnectionString("BookTicketDB")));
 
             services.AddScoped<ILanguageRepository, LanguageRepository>();
-          
+            services.AddScoped<IMenuRepository, MenuRepository>();
+
             services.AddControllersWithViews();
             //Repository
            

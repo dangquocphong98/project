@@ -16,12 +16,18 @@ namespace Nothing.Model.Data
         {
             modelBuilder.ApplyConfiguration(new LanguageConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.ApplyConfiguration(new MenuConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new ProfileConfiguration());
 
             //modelBuilder.Seed();
         }
 
         public DbSet<Language> languages { get; set; }
         public DbSet<Role> roles { get; set; }
+        public DbSet<MenuAdmin> menus { get; set; }
+        public DbSet<User> users { get; set; }
+        public DbSet<Profile> profiles { get; set; }
 
     }
 }

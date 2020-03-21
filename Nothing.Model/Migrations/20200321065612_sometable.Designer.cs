@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nothing.Model.Data;
 
 namespace Nothing.Model.Migrations
 {
     [DbContext(typeof(NothingDBContext))]
-    partial class NothingDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200321065612_sometable")]
+    partial class sometable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +53,7 @@ namespace Nothing.Model.Migrations
 
                     b.Property<string>("NameMenu")
                         .IsRequired()
-                        .HasColumnType("nvarchar(99)");
+                        .HasColumnType("varchar(99)");
 
                     b.Property<int>("ParentID")
                         .HasColumnType("int");
@@ -76,18 +78,18 @@ namespace Nothing.Model.Migrations
 
                     b.Property<string>("Displayname")
                         .IsRequired()
-                        .HasColumnType("nvarchar(99)");
+                        .HasColumnType("varchar(99)");
 
                     b.Property<string>("DoctorComment")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(max)");
 
                     b.Property<int>("Id_User")
                         .HasColumnType("int");
 
                     b.Property<string>("Pathological")
                         .IsRequired()
-                        .HasColumnType("nvarchar(999)");
+                        .HasColumnType("varchar(999)");
 
                     b.HasKey("Id_Profile");
 

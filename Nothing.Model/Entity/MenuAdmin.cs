@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Nothing.Model.Entity
 {
-    class MenuAdmin
+    public class MenuAdmin
     {
         public int Id_Menu { get; set; }
         public string NameMenu { get; set; }
