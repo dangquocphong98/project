@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nothing.Model.Configuation;
+using Nothing.Model.Configuration;
 using Nothing.Model.Entity;
 
 namespace Nothing.Model.Data
@@ -14,12 +15,13 @@ namespace Nothing.Model.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new LanguageConfiguration());
-           
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
 
             //modelBuilder.Seed();
         }
 
         public DbSet<Language> languages { get; set; }
-       
+        public DbSet<Role> roles { get; set; }
+
     }
 }

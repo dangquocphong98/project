@@ -30,6 +30,7 @@
         var data = $('#form-add').serialize();
         $.post('Language/Add', data,function (data) {
             $('#table-Language').html(data);
+            toastr.success("Thành công");
         });
     });
 </script>
