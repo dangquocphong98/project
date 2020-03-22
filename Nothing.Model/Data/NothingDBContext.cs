@@ -20,7 +20,7 @@ namespace Nothing.Model.Data
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new ProfileConfiguration());
 
-            //modelBuilder.Seed();
+            modelBuilder.Seed();
         }
 
         public DbSet<Language> languages { get; set; }

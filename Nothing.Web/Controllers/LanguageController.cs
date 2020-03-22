@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Nothing.Application.Repository.LanguageRepository;
 
@@ -10,6 +11,7 @@ using Nothing.Web.Common;
 
 namespace Nothing.Web.Controllers
 {
+    [Authorize]
     public class LanguageController : Controller
     {
         private ILanguageRepository _ILanguage;

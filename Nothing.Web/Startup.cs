@@ -36,6 +36,8 @@ namespace Nothing.Web
             services.AddScoped<ILanguageRepository, LanguageRepository>();
             services.AddScoped<IMenuRepository, MenuRepository>();
 
+
+            services.AddSession();
             services.AddControllersWithViews();
             //Repository
            
@@ -58,16 +60,16 @@ namespace Nothing.Web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllerRoute(
-                //    name: "MyArea",
-                //    pattern: "{area:exists}/{controller=Language}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "MyArea",
+                    pattern: "{area:exists}/{controller=Language}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",

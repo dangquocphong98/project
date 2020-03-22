@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Nothing.Web.Controllers
+namespace Nothing.Web.Areas.Admin.Controllers
 {
-    public class TestThemeController : Controller
+    [Area("Admin")]
+    public class DoneAreasController : Controller
     {
         public IActionResult Index()
         {
