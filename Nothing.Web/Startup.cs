@@ -13,6 +13,7 @@ using Nothing.Application.Repository;
 using Nothing.Application.Repository.GenericRepository;
 using Nothing.Application.Repository.LanguageRepository;
 using Nothing.Application.Repository.Menu;
+using Nothing.Application.Repository.UserRepository;
 using Nothing.Model.Data;
 
 namespace Nothing.Web
@@ -35,6 +36,7 @@ namespace Nothing.Web
 
             services.AddScoped<ILanguageRepository, LanguageRepository>();
             services.AddScoped<IMenuRepository, MenuRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
 
             services.AddSession();

@@ -59,44 +59,5 @@
         </tbody>
     </table>
 </div>
-<script>
-    $(document).ready(function () {
-        $.extend($.fn.dataTable.defaults, {
 
-        });
-
-        $('#tableLanguage').DataTable({
-
-        });
-
-        $('#tableLanguage_length select').select2({
-            minimumResultsForSearch: Infinity
-        });
-
-        $('#tableLanguage_filter input').addClass('input-search');
-
-        $('#bt-Add').click(function () {
-
-            $.get('Language/ShowPageAdd', function (data) {
-                $('#table-Language').html(data);
-            });
-        });
-
-        $('.icon-Update').click(function () {
-            var ID = $(this).attr('data-id');
-            var id = parseInt(ID);
-            //$.get('Language/Update',id, function (data) {
-            //    $('#table-Language').html(data);
-            //});
-            $.ajax({
-                type: 'get',
-                data: { id: id },
-                url: 'Language/Update'
-            }).done(function (data) {
-                $('#table-Language').html(data);
-            });
-        })
-    });
-
-</script>
 

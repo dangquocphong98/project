@@ -11,7 +11,7 @@ using Nothing.Web.Common;
 
 namespace Nothing.Web.Controllers
 {
-    [Authorize]
+    
     public class LanguageController : Controller
     {
         private ILanguageRepository _ILanguage;
