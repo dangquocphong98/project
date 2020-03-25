@@ -10,6 +10,7 @@ namespace Nothing.Model.Data
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
+            List<string> ls = new List<string> { "7", "8", "11" };
             modelBuilder.Entity<User>().HasData(
                 new User
                 {

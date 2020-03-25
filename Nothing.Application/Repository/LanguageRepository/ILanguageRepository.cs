@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nothing.Application.Repository.LanguageRepository
+namespace Nothing.Application.Repository
 {
     public interface ILanguageRepository : IGenericRepository<Language>
     {

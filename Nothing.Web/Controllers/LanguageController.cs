@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Nothing.Application.Repository.LanguageRepository;
+using Nothing.Application.Repository;
 
 using Nothing.Model.Entity;
 using Nothing.Web.Common;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,7 @@ using Nothing.Application.Repository.LanguageRepository;
 using Nothing.Application.Repository.Menu;
 using Nothing.Application.Repository.UserRepository;
 using Nothing.Model.Data;
+using Nothing.Web.Common;
 
 namespace Nothing.Web
 {
@@ -38,7 +40,8 @@ namespace Nothing.Web
             services.AddScoped<IMenuRepository, MenuRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<GetLab>();
             services.AddSession();
             services.AddControllersWithViews();
             //Repository

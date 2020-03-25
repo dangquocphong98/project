@@ -13,6 +13,7 @@
     <PackageReference Include="AngularJS.Core" Version="1.7.9" />
     <PackageReference Include="AngularJS.Route" Version="1.7.9" />
     <PackageReference Include="bootstrap" Version="4.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

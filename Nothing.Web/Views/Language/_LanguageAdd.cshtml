@@ -1,4 +1,13 @@
-﻿<div class="panel-body">
+﻿@using Nothing.Web.Common
+@using Microsoft.AspNetCore.Http
+@using Nothing.Application.Repository
+@inject IHttpContextAccessor httpContextAccessor
+@inject ILanguageRepository  ILanguge
+@{
+    var getlab = new GetLab(httpContextAccessor,ILanguge);
+}
+
+<div class="panel-body">
     <form id="form-add">
         <div class="form-group">
             <label>Từ khóa</label>
@@ -17,18 +26,18 @@
                 Thêm<span class="btn-icon-right"><i class="fa fa-check"></i></span>
             </button>
             <button type="button" style="margin-left:10px;" class="btn mb-1 btn-info" ng-click="showPopupTable()">
-                Trở về<span class="btn-icon-right"><i class="fa fa-arrow-left"></i></span>
+                @*Trở về*@ @getlab.GetLang("NT_LanguageAdd_LabBack")<span class="btn-icon-right"><i class="fa fa-arrow-left"></i></span>
             </button>
         </div>
     </form>
-   
+
 </div>
 
 <script>
     $('#btSaveAdd').click(function () {
         debugger
         var data = $('#form-add').serialize();
-        $.post('Language/Add', data,function (data) {
+        $.post('Language/Add', data, function (data) {
             $('#table-Language').html(data);
             toastr.success("Thành công");
         });

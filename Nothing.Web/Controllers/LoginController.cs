@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Nothing.Application.Repository.UserRepository;
 using Nothing.Model.Entity;
 using Nothing.Web.Common;
@@ -36,7 +38,11 @@ namespace Nothing.Web.Controllers
             {
                 result.status = true;
                 result.mess = "Dang nhap thanh cong";
-                
+
+                Response.Cookies.Append("ss","ss");
+
+                HttpContext.Session.SetString("UserCurrent",JsonConvert.SerializeObject(model));
+                HttpContext.Session.SetString("LanguageCurrent",model.LanguageCurrent);
             }
             return new JsonResult(result);
 
